@@ -1,0 +1,45 @@
+# Compiled objects and binaries
+*.o
+*.a
+*.so
+*.dll
+*.exe
+game
+
+# Wayland generated protocol files
+xdg-shell-client-protocol.h
+xdg-shell-protocol.c
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.Trash-*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# VSCode Plugins
+.VSCodeCounter
+
+# Report (latex output)
+doc/report/report.aux
+doc/report/report.fdb_latexmk
+doc/report/report.fls
+doc/report/report.log
+doc/report/report.out
+doc/report/report.pdf
+doc/report/report.synctex.gz
