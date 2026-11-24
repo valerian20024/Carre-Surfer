@@ -2,7 +2,7 @@
 
 ## About
 
-It's 2am in the Carré, the legendary student district of Liège. Thomas has had a few drinks (or two, or three, or...) and now has to stumble his way back home along a dirty sidewalk. Think *Subway Surfers*, but with a lot more Chouffe.
+It's 2am in the Carré, the legendary student district of Liège, Belgium. Thomas has had a few drinks... now he has to stumble his way back home along a dirty sidewalk. Think *Subway Surfers*, but with a lot more Chouffe.
 
 Your job is to help him get there. Thomas scrolls through an endless street, and everything in his way comes at him from the right:
 
@@ -10,6 +10,7 @@ Your job is to help him get there. Thomas scrolls through an endless street, and
 - 🗑️ **Garbage**: hurts a little.
 - 🛴 **Abandoned Bolt scooters**: hurts a lot, he trips and falls.
 - 🍺 **Other drunk students**: hurts a bit, and he's so embarrassed that his controls get reversed for a few seconds.
+- 🚌 **Buses**: in the center of Liège, buses often come and go, hurting and blocking Thomas in his quest.
 
 Thomas is quite drunk, so he can't help but wobble from side to side and pitifully stumble on random obstacles. His health is shown by the brightness of the screen: the more he gets hurt, the darker it gets, and at zero he passes out. Survive as long as you can: your score is the number of seconds you last before the game is over. Press `SPACE` to try again.
 
