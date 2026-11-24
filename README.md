@@ -36,13 +36,14 @@ See [doc/wrapper/wrapper.md](doc/wrapper/wrapper.md) for troubleshooting.
 
 ## Build and run
 
+From the repository root:
+
 ```bash
-cd src
-make
-./game
+make        # builds ./game
+./game      # or: make run
 ```
 
-`make clean` removes the build artifacts, including the generated Wayland protocol files.
+`make clean` removes the binary and the `build/` directory (object files and generated Wayland protocol files).
 
 ## Screenshots
 

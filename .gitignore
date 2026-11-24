@@ -43,3 +43,6 @@ doc/report/report.log
 doc/report/report.out
 doc/report/report.pdf
 doc/report/report.synctex.gz
+
+# Build output
+build/

@@ -8,18 +8,17 @@ Carré Surfer: a 2D survival/dodging game in C++20, written for Project 2 of the
 
 ## Build & run
 
-All code and the Makefile are in `src/`:
+Headers are in `include/`, sources in `src/`, and the Makefile is at the repo root. Run from the root:
 
 ```bash
-cd src
-make          # builds ./game
-./game
-make clean    # also deletes the generated Wayland protocol files
+make          # builds ./game (objects go to build/)
+./game        # or: make run
+make clean    # removes ./game and build/
 ```
 
 - Requires a **Wayland** session (not X11) and the packages `libwayland-dev libxkbcommon-dev wayland-protocols` (+ `wayland-scanner`). See `doc/wrapper/wrapper.md` for troubleshooting.
-- The Makefile generates `xdg-shell-client-protocol.h` / `xdg-shell-protocol.c` from `/usr/share/wayland-protocols/stable/xdg-shell/xdg-shell.xml` via `wayland-scanner`; these are gitignored.
-- **New `.cpp` files must be added to `CXX_SRCS` in `src/Makefile`.**
+- The Makefile generates `build/xdg-shell-client-protocol.h` / `build/xdg-shell-protocol.c` from `/usr/share/wayland-protocols/stable/xdg-shell/xdg-shell.xml` via `wayland-scanner`.
+- Every `src/*.cpp` is compiled automatically (wildcard); header dependencies are tracked via `-MMD -MP`.
 - There are no tests and no linter. Compiler warnings come from `-Wall -Wextra`.
 
 ## Architecture
