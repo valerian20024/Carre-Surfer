@@ -56,3 +56,7 @@ make        # builds ./game
 ## Copyright
 
 This was originally project 2 of the *Object-Oriented Programming Projects* course taught at Uliège by Laurent Mathy and his TAs, written by Valérian Wislez. There is not yet a LICENSE associated to this code, the author is actively trying to find a license suiting his needs. For the time being, you may consider that this code cannot be reused by anyone else unless explicitly stated by the author.
+
+### Third-party code
+
+The Wayland window wrapper in [third_party/wayland_wrapper/](third_party/wayland_wrapper/) (`Window.cpp` and `Window.hpp`) was **not written by me**. It was provided by the teaching assistants of the course as part of the project statement. Anyone wanting to reuse or license this code should contact them directly. Unless they state otherwise, assume it is copyrighted by its authors and all rights are reserved.

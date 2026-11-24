@@ -3,6 +3,7 @@
 # Layout:
 #   include/   headers (.hpp)
 #   src/       sources (.cpp)
+#   third_party/wayland_wrapper/   course-provided Wayland window wrapper
 #   build/     object files and generated Wayland protocol files
 #
 # Commands:
@@ -19,10 +20,11 @@ SCANNER  := wayland-scanner
 SRC_DIR   := src
 INC_DIR   := include
 BUILD_DIR := build
+WRAPPER_DIR := third_party/wayland_wrapper
 
 # Flags (-MMD -MP generate header dependency files, so editing a .hpp
 # rebuilds every .cpp that includes it)
-CPPFLAGS := -I$(INC_DIR) -I$(BUILD_DIR) -MMD -MP
+CPPFLAGS := -I$(INC_DIR) -I$(WRAPPER_DIR) -I$(BUILD_DIR) -MMD -MP
 CXXFLAGS := -std=c++20 -Wall -Wextra -O2 -pthread
 CFLAGS   := -O2
 LDFLAGS  := -pthread -lwayland-client -lxkbcommon
@@ -35,10 +37,12 @@ XDG_HDR  := $(BUILD_DIR)/xdg-shell-client-protocol.h
 XDG_SRC  := $(BUILD_DIR)/xdg-shell-protocol.c
 XDG_OBJ  := $(BUILD_DIR)/xdg-shell-protocol.o
 
-# C++ sources: every .cpp in src/ is picked up automatically
-CXX_SRCS := $(wildcard $(SRC_DIR)/*.cpp)
-CXX_OBJS := $(CXX_SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
-DEPS     := $(CXX_OBJS:.o=.d)
+# C++ sources: every .cpp in src/ and in the wrapper is picked up automatically
+CXX_SRCS     := $(wildcard $(SRC_DIR)/*.cpp)
+WRAPPER_SRCS := $(wildcard $(WRAPPER_DIR)/*.cpp)
+CXX_OBJS     := $(CXX_SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o) \
+                $(WRAPPER_SRCS:$(WRAPPER_DIR)/%.cpp=$(BUILD_DIR)/%.o)
+DEPS         := $(CXX_OBJS:.o=.d)
 
 TARGET   := game
 
@@ -57,6 +61,9 @@ $(TARGET): $(XDG_OBJ) $(CXX_OBJS)
 $(CXX_OBJS): $(XDG_HDR)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/%.o: $(WRAPPER_DIR)/%.cpp | $(BUILD_DIR)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
 # Generated protocol stub is C, not C++.

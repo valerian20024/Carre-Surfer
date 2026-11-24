@@ -8,7 +8,7 @@ Carré Surfer: a 2D survival/dodging game in C++20, written for Project 2 of the
 
 ## Build & run
 
-Headers are in `include/`, sources in `src/`, and the Makefile is at the repo root. Run from the root:
+Headers are in `include/`, sources in `src/`, the course-provided Wayland wrapper in `third_party/wayland_wrapper/`, and the Makefile is at the repo root. Run from the root:
 
 ```bash
 make          # builds ./game (objects go to build/)
